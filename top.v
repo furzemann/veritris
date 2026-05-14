@@ -16,6 +16,9 @@ wire [9:0] pixel_x;
 wire [9:0] pixel_y;
 wire visible;
 
+wire debounced_left;
+wire debounced_right;
+
 wire [9:0] board[0:19];
 wire [9:0] piece[0:3];
 wire [4:0] piece_y;
@@ -34,11 +37,14 @@ vgatop vga(
     .visible(visible)
 );
 
+debouncer dl(.clk(clk), .btn(move_left), .fin(debounced_left));
+debouncer dr(.clk(clk), .btn(move_right), .fin(debounced_right));
+
 game g(.clk(clk),
     .rst(rst),
 
-    .move_left(move_left),
-    .move_right(move_right),
+    .move_left(dl),
+    .move_right(dr),
     .rotate(rotate),
 
     .board(board),
