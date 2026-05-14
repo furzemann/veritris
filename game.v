@@ -25,7 +25,6 @@ reg [9:0] piece_rom [0:6][0:3][0:3];
 
 // PIECE ROM
 
-reg [9:0] piece_rom [0:6][0:3][0:3];
 
 initial begin
 
@@ -190,7 +189,7 @@ piece_rom[6][3][2]=10'b0000100000;
 piece_rom[6][3][3]=0;
 
 end/////////////////////////////////////////////////
-wire [2:0] rand_piece 
+wire [2:0] rand_piece;
 wire left_wall;
 wire right_wall;
 
