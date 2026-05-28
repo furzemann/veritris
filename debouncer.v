@@ -1,24 +1,25 @@
-module debouncer(
+module debouncer (
     input clk,
-    input btn,
-    output reg fin,
+    input btn_in,
+    output reg btn_pulse
 );
+    reg [19:0] count;
+    reg btn_reg;
 
-reg [19:0] counter;
-reg curr;
-
-always @(posegde clk) begin
-    curr <= btn;
-    if (curr!=fin) begin
-        counter <= counter + 1;
-        if (counter == 100000) begin
-            fin <= btn;
-            counter <= 0;
+    always @(posedge clk) begin
+        if (btn_in == btn_reg) begin
+            count <= 0;
+        end else begin
+            count <= count + 1;
+            if (count == 20'd1000000) begin
+                btn_reg <= btn_in;
+            end
         end
     end
-    else 
-        counter <= 0;
 
-end 
+    reg btn_prev;
+    always @(posedge clk) begin
+        btn_prev <= btn_reg;
+        btn_pulse <= (btn_reg && !btn_prev);
+    end
 endmodule
-
