@@ -83,7 +83,12 @@ Veritris keeps rendering and game state independent:
 This separation mirrors real architectures that use separate units for tasks and makes the project easier to scale and maintain.
 
 ---
+## Final Implementation
 
+https://github.com/user-attachments/assets/f010f0dc-0b65-4614-8cdf-9e57bb16b724
+
+
+--
 ## Long-Term Ideas
 
 * HDMI output
