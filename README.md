@@ -92,6 +92,5 @@ https://github.com/user-attachments/assets/f010f0dc-0b65-4614-8cdf-9e57bb16b724
 ## Long-Term Ideas
 
 * HDMI output
-* Colorized tetrominoes
 * Soft-core CPU integration
 * Additional FPGA game projects built on the same renderer
